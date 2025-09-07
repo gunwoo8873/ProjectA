@@ -23,13 +23,16 @@
 
       <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,0,0,0">
         <Label>Names</Label>
-        <ListBox x:Name="listNames" Width="Auto" Height="Auto" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100"> 
+          <ListBox x:Name="listNames" Width="Auto" Height="Auto"/> 
+        </ScrollViewer>
       </StackPanel>
 
       <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
         <!-- ... -->
         <TextBox x:Name="txtName" />
         <Button x:Name="addBtn" Click="Name_Add_Btn" Margin="0,5,0,0">Add</Button>
+        <Button x:Name="deleteBtn" Click="Name_Delete_Btn" Margin="0,5,0,0">Delete</Button>
         <Button x:Name="clearBtn" Click="Name_Clear_Btn" Margin="0,5,0,0">Clear</Button>
       </StackPanel>
     </Grid>

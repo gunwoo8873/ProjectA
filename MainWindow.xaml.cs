@@ -31,6 +31,14 @@ public partial class MainWindow : Window
     }
   }
 
+  private void Name_Delete_Btn(object sender, RoutedEventArgs e)
+  {
+    while (listNames.Items.Contains(txtName.Text))
+    {
+      listNames.Items.Remove(txtName.Text);
+    }
+  }
+
   private void Name_Clear_Btn(object sender, RoutedEventArgs e)
   {
     listNames.Items.Clear();
