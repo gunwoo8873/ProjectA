@@ -21,6 +21,25 @@
         <RowDefinition Height="*" /> <!-- 2 -->
       </Grid.RowDefinitions>
 
+      <Menu x:Name="TopMenuBar" Height="20">
+        <!-- File Menu -->
+        <MenuItem Header="File">
+          <MenuItem Header="New" />
+          <MenuItem Header="Open" />
+          <MenuItem Header="Save" />
+          <MenuItem Header="Save As" />
+        </MenuItem>
+
+        <!-- Option menu -->
+        <MenuItem Header="Options" />
+
+        <!-- Other menu items -->
+        <MenuItem Header="Help">
+          <MenuItem Header="About" />
+          <MenuItem Header="Source Code" />
+        </MenuItem>
+      </Menu>
+
       <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,0,0,0">
         <Label>Names</Label>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100"> 
@@ -29,7 +48,6 @@
       </StackPanel>
 
       <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
-        <!-- ... -->
         <TextBox x:Name="txtName" />
         <Button x:Name="addBtn" Click="Name_Add_Btn" Margin="0,5,0,0">Add</Button>
         <Button x:Name="deleteBtn" Click="Name_Delete_Btn" Margin="0,5,0,0">Delete</Button>

@@ -9,38 +9,46 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectA;
-
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 
-public partial class MainWindow : Window
+
+namespace ProjectA
 {
-  public MainWindow()
+  public partial class MainWindow : Window
   {
-    InitializeComponent();
-  }
-
-  private void Name_Add_Btn(object sender, RoutedEventArgs e)
-  {
-    if (!string.IsNullOrEmpty(txtName.Text) && !listNames.Items.Contains(txtName.Text))
+    public MainWindow()
     {
-      listNames.Items.Add(txtName.Text);
-      txtName.Clear();
+      InitializeComponent();
+    }
+
+    private void Name_Add_Btn(object sender, RoutedEventArgs e)
+    {
+      if (!string.IsNullOrEmpty(txtName.Text) && !listNames.Items.Contains(txtName.Text))
+      {
+        listNames.Items.Add(txtName.Text);
+        txtName.Clear();
+      }
+    }
+
+    private void Name_Delete_Btn(object sender, RoutedEventArgs e)
+    {
+      while (listNames.Items.Contains(txtName.Text))
+      {
+        listNames.Items.Remove(txtName.Text);
+      }
+    }
+
+    private void Name_Clear_Btn(object sender, RoutedEventArgs e)
+    {
+      listNames.Items.Clear();
     }
   }
 
-  private void Name_Delete_Btn(object sender, RoutedEventArgs e)
-  {
-    while (listNames.Items.Contains(txtName.Text))
-    {
-      listNames.Items.Remove(txtName.Text);
-    }
-  }
-
-  private void Name_Clear_Btn(object sender, RoutedEventArgs e)
-  {
-    listNames.Items.Clear();
-  }
 }
+
+namespace FileMenu
+{
+  
+};
