@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO.Enumeration;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,37 +10,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using View.Dialog;
+using Options;
+
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-
-struct StatusType
-{
-    public const bool enable = true;
-    public const bool disable = false;
-}
-
-namespace Dialog
-{
-    public class OpenWindow
-    {
-        public void Open()
-        {
-            var _dialog = new Microsoft.Win32.OpenFileDialog();
-            _dialog.FileName = "Document"; // Open new Window to show dirdctory in the file list
-            _dialog.DefaultExt = ""; // Defualt file extansion
-            _dialog.Filter = "All Files (*,*)|*.*|Text Document (.txt)|*.txt|C# (.cs)|*.cs|Go (.go, .mod, .sum)|*.go, *mod, *sum";
-
-            bool? result = _dialog.ShowDialog();
-
-            if (result == StatusType.enable)
-            {
-                string filename = _dialog.FileName;
-                MessageBox.Show($"선택한 파일: {filename}");
-            }
-        }
-    }
-}
 
 namespace ProjectA
 {
@@ -50,9 +26,21 @@ namespace ProjectA
             InitializeComponent();
         }
 
-        public void Openfile_Window_btn(object Sender, RoutedEventArgs e)
+        private void Openfile_btn(object Sender, RoutedEventArgs e)
         {
-            var win = new Dialog.OpenWindow();
+            var win = new View.Dialog.File();
+            win.Open();
+        }
+
+        private void Savefile_btn(object Sender, RoutedEventArgs e)
+        {
+            var win = new View.Dialog.File();
+            win.Save();
+        }
+
+        private void Openfolder_btn(object Sender, RoutedEventArgs e)
+        {
+            var win = new View.Dialog.Folder();
             win.Open();
         }
     }

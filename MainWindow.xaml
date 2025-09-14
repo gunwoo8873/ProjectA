@@ -1,22 +1,22 @@
 ﻿<Window x:Class="ProjectA.MainWindow"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:local="clr-namespace:ProjectA"
-  mc:Ignorable="d"
-  Title="MainWindow" Height="450" Width="800" Background="Gray">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ProjectA"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="450" Width="800" Background="Gray">
 
-  <!-- Grid Layout -->
+    <!-- Grid Layout -->
     <Grid Margin="0">
 		<!-- Column Grid -->
-        <Grid.ColumnDefinitions> <!-- Column -->
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
 		<!-- Row Grid -->
-        <Grid.RowDefinitions> <!-- Row -->
+        <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -24,14 +24,18 @@
 
         <!-- Top User select Menubar -->
         <Menu Grid.Row="0" Grid.Column="0">
-            <MenuItem Header="File">
-                <MenuItem Header="Open" Click="Openfile_Window_btn"/>
-                <MenuItem Header="Save" />
+            <MenuItem Header="Menu">
+				<MenuItem Header="Open">
+					<MenuItem Header="File" Click="Openfile_btn" />
+					<MenuItem Header="Folder" Click="Openfolder_btn" />
+				</MenuItem>
+                <MenuItem Header="Save" Click="Savefile_btn"/>
                 <MenuItem Header="Save As" />
             </MenuItem>
-            <MenuItem Header="Options" />
+			<!-- <MenuItem Header="Options" Click="SetOptions_btn /> -->
+			<MenuItem Header="Options" />
             <MenuItem Header="About">
-            <MenuItem Header="GitHub" />
+                <MenuItem Header="GitHub" />
             </MenuItem>
         </Menu>
         

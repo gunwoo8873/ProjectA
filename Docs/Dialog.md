@@ -1,4 +1,15 @@
-# OpenfileDialog
+# Dialog Struct
+
+| Property         | Description                                           |
+| ---------------- | ----------------------------------------------------- |
+| Title            | The title of the dialog window                        |
+| FileName         | The default file name displayed in the dialog         |
+| DefaultDirectory | The initial directory displayed when the dialog opens |
+| DefaultExt       | The default file extension for the file name          |
+| Filter           | The file type filter for the dialog                   |
+
+
+## OpenfileDialog
 
 ```cs
 //// Create OpenFileDialog new instance
@@ -14,6 +25,32 @@ bool? result = _dialog.ShowDialog();
 if (result == true)
 {
     string filename = _dialog.FileName;
-    MessageBox.Show($"¼±ÅÃÇÑ ÆÄÀÏ: {filename}");
+    MessageBox.Show($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: {filename}");
+}
+```
+
+## SaveFileDialog
+
+```cs
+var _dialog = new Microsoft.Win32.SaveFileDialog();
+_dialog.Title = "Save a File";
+_dialog.FileName = "";
+_dialog.DefaultDirectory = "";
+_dialog.DefaultExt = "";
+_dialog.Filter = "All Files (*,*)|*.*|Text Document (.txt)|*.txt|C# (.cs)|*.cs|Go (.go, .mod, .sum)|*.go, *mod, *sum";
+
+bool? result = _dialog.ShowDialog();
+
+if (_dialog.FileName != "")
+{
+    if (result == StatusType.disable)
+    {
+        MessageBox.Show("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+    }
+    else
+    {
+        string filename = _dialog.FileName;
+        MessageBox.Show($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {filename}");
+    }
 }
 ```
