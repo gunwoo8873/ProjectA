@@ -5,45 +5,49 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:local="clr-namespace:ProjectA"
   mc:Ignorable="d"
-  Title="MainWindow" Height="450" Width="800" Background="Black">
+  Title="MainWindow" Height="450" Width="800" Background="Gray">
 
   <!-- Grid Layout -->
-  <Grid Margin="0">
-    <Grid.ColumnDefinitions> <!-- Column -->
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
+    <Grid Margin="0">
+		<!-- Column Grid -->
+        <Grid.ColumnDefinitions> <!-- Column -->
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+		<!-- Row Grid -->
+        <Grid.RowDefinitions> <!-- Row -->
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    <Grid.RowDefinitions> <!-- Row -->
-      <RowDefinition Height="20" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-
-    <!-- Top Select MenuBar -->
-    <Menu Grid.Row="0" Grid.Column="0">
-      <MenuItem Header="File">
-        <MenuItem Header="Open" />
-        <MenuItem Header="Save" />
-        <MenuItem Header="Save As" />
-      </MenuItem>
-      <MenuItem Header="Options" />
-      <MenuItem Header="About">
-        <MenuItem Header="GitHub" />
-      </MenuItem>
-    </Menu>
-
-    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-      <TextBox x:Name="Port_Input"  Text="http://localhost:8080" Width="200" Height="50" />
-      <StackPanel>
-        <Button x:Name="Apply" Width="100" Height="30 ">Apply</Button>
-        <Button x:Name="Conn" Width="100" Height="30">Connect</Button>
-        <Button x:Name="DisConn" Width="100" Height="30">DisConnect</Button>
-      </StackPanel>
-    </StackPanel>
-
-    <ScrollViewer Grid.Row="2">
-      <ListBox x:Name="Log_Info"  Width="450" Height="800" />
-    </ScrollViewer>
-  </Grid>
+        <!-- Top User select Menubar -->
+        <Menu Grid.Row="0" Grid.Column="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Click="Openfile_Window_btn"/>
+                <MenuItem Header="Save" />
+                <MenuItem Header="Save As" />
+            </MenuItem>
+            <MenuItem Header="Options" />
+            <MenuItem Header="About">
+            <MenuItem Header="GitHub" />
+            </MenuItem>
+        </Menu>
+        
+		<!-- Right HTTP Connection box and Status btn -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="Port_Input" Text="http://localhost:8080" Width="200" Height="30" />
+            <StackPanel>
+				<Button x:Name="Apply" Width="100" Height="30 ">Apply</Button>
+				<Button x:Name="Conn" Width="100" Height="30">Connect</Button>
+				<Button x:Name="DisConn" Width="100" Height="30">DisConnect</Button>
+            </StackPanel>
+        </StackPanel>
+        
+		<!-- Bottom Log information output feature -->
+        <ScrollViewer Grid.Row="2">
+            <ListBox x:Name="Log_Info"  Width="450" Height="400" />
+        </ScrollViewer>
+    </Grid>
 </Window>
