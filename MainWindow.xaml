@@ -34,7 +34,7 @@
             </MenuItem>
 			<!-- <MenuItem Header="Options" Click="SetOptions_btn /> -->
 			<MenuItem Header="Options" />
-            <MenuItem Header="About">
+			<MenuItem Header="About">
                 <MenuItem Header="GitHub" />
             </MenuItem>
         </Menu>
