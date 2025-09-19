@@ -9,13 +9,13 @@
 
     <!-- Grid Layout -->
     <Grid Margin="0">
-		<!-- Column Grid -->
+        <!-- Column Grid -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
-		<!-- Row Grid -->
+
+        <!-- Row Grid -->
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
@@ -25,33 +25,42 @@
         <!-- Top User select Menubar -->
         <Menu Grid.Row="0" Grid.Column="0">
             <MenuItem Header="Menu">
-				<MenuItem Header="Open">
-					<MenuItem Header="File" Click="Openfile_btn" />
-					<MenuItem Header="Folder" Click="Openfolder_btn" />
-				</MenuItem>
+                <MenuItem Header="Open">
+                    <MenuItem Header="File" Click="Openfile_btn" />
+                    <MenuItem Header="Folder" Click="Openfolder_btn" />
+                </MenuItem>
                 <MenuItem Header="Save" Click="Savefile_btn"/>
                 <MenuItem Header="Save As" />
             </MenuItem>
-			<!-- <MenuItem Header="Options" Click="SetOptions_btn /> -->
-			<MenuItem Header="Options" />
-			<MenuItem Header="About">
+            <!-- <MenuItem Header="Options" Click="SetOptions_btn /> -->
+            <MenuItem Header="Options" />
+            <MenuItem Header="About">
                 <MenuItem Header="GitHub" />
             </MenuItem>
         </Menu>
-        
-		<!-- Right HTTP Connection box and Status btn -->
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="Port_Input" Text="http://localhost:8080" Width="200" Height="30" />
-            <StackPanel>
-				<Button x:Name="Apply" Width="100" Height="30 ">Apply</Button>
-				<Button x:Name="Conn" Width="100" Height="30">Connect</Button>
-				<Button x:Name="DisConn" Width="100" Height="30">DisConnect</Button>
+
+        <!-- Right HTTP Connection box and Status btn -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0">
+            <TextBox x:Name="Port_Input" Text="http://localhost:8080" Width="199" Height="110" RenderTransformOrigin="0.487,0.511" TextChanged="Port_Input_TextChanged" VerticalAlignment="Top" />
+            <StackPanel Height="207">
+                <Button x:Name="Apply" Width="100" Height="30 " Content="Apply"/>
+                <Button x:Name="Conn" Width="100" Height="30" Content="Connect"/>
+                <Button x:Name="DisConn" Width="100" Height="30" Content="DisConnect"/>
             </StackPanel>
         </StackPanel>
-        
-		<!-- Bottom Log information output feature -->
-        <ScrollViewer Grid.Row="2">
-            <ListBox x:Name="Log_Info"  Width="450" Height="400" />
+
+        <!-- Bottom Log information output feature -->
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="3,2,397,205" Grid.RowSpan="2">
+            <ListBox x:Name="Log_Info"  Width="382" Height="205" RenderTransformOrigin="0,0" SelectionChanged="Log_Info_SelectionChanged" >
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.429"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-1.498"/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+            </ListBox>
         </ScrollViewer>
     </Grid>
 </Window>

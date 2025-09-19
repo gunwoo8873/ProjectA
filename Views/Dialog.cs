@@ -28,17 +28,30 @@ namespace View.Dialog
     {
         public void Open()
         {
-            var _dialog = new Microsoft.Win32.OpenFileDialog();
-            _dialog.Title = "Open File";
-            _dialog.FileName = DefaultElement.DefaultFileName; // Open new Window to show dirdctory in the file list
-            _dialog.DefaultExt = DefaultElement.DefaultExt; // Defualt file extansion
-            _dialog.Filter = string.Join("|", new[] {
+            var _dialog = new Microsoft.Win32.OpenFileDialog()
+            {
+                // _dialog.Title = "Open File";
+                // _dialog.FileName = DefaultElement.DefaultFileName; // Open new Window to show dirdctory in the file list
+                // _dialog.DefaultExt = DefaultElement.DefaultExt; // Defualt file extansion
+                // _dialog.Filter = string.Join("|", new[] {
+                //     FilterType.AllFiles,
+                //     FilterType.TextDocument,
+                //     FilterType.CSharp,
+                //     FilterType.Go,
+                //     FilterType.Markdown
+                // });
+
+                Title = "Open File",
+                FileName = DefaultElement.DefaultFileName,
+                DefaultExt = DefaultElement.DefaultExt,
+                Filter = string.Join("|", new[] {
                 FilterType.AllFiles,
                 FilterType.TextDocument,
                 FilterType.CSharp,
                 FilterType.Go,
                 FilterType.Markdown
-            });
+            })
+            };
 
             bool? result = _dialog.ShowDialog();
 
@@ -51,41 +64,46 @@ namespace View.Dialog
 
         public void Save()
         {
-            var _dialog = new Microsoft.Win32.SaveFileDialog();
-            _dialog.Title = "Save a File";
-            _dialog.FileName = DefaultElement.DefaultFileName;
-            _dialog.DefaultDirectory = DefaultElement.DefaultDirectory;
-            _dialog.DefaultExt = DefaultElement.DefaultExt;
-            _dialog.Filter = string.Join("|", new[] {
+            var _dialog = new Microsoft.Win32.SaveFileDialog()
+            {
+                Title = "Save File",
+                FileName = DefaultElement.DefaultFileName,
+                DefaultExt = DefaultElement.DefaultExt,
+                Filter = string.Join("|", new[] {
                 FilterType.AllFiles,
                 FilterType.TextDocument,
                 FilterType.CSharp,
                 FilterType.Go,
                 FilterType.Markdown
-            });
+            })
+            };
 
             bool? result = _dialog.ShowDialog();
 
-            if (_dialog.FileName == null)
-            {
-                MessageBox.Show("Not input file name");
-            }
+            // if (_dialog.FileName == null)
+            // {
+            //     MessageBox.Show("Not input file name");
+            // }
 
-            if (result == StatusType.enable)
-            {
-                string filename = _dialog.FileName;
-                MessageBox.Show($"Save File : {filename}");
-            }
+            // if (result == StatusType.enable)
+            // {
+            //     string filename = _dialog.FileName;
+            //     MessageBox.Show($"Save File : {filename}");
+            // }
         }
     }
-
     public class Folder
     {
         public void Open()
         {
-            var _dialog = new Microsoft.Win32.OpenFolderDialog();
-            _dialog.Title = "Select a folder";
-            _dialog.DefaultDirectory = DefaultElement.DefaultDirectory; // Default view to directory open dialog
+            var _dialog = new Microsoft.Win32.OpenFolderDialog()
+            {
+                // _dialog.Title = "Select a folder";
+                // _dialog.DefaultDirectory = DefaultElement.DefaultDirectory; // Default view to directory open dialog
+
+                Title = "Open Folder",
+                DefaultDirectory = DefaultElement.DefaultDirectory
+            };
 
             bool? result = _dialog.ShowDialog();
         }
